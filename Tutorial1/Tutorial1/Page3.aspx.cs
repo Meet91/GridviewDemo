@@ -5,6 +5,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Tutorial1
 {
@@ -23,8 +24,9 @@ namespace Tutorial1
         {
             try
             {
-                string conString = @"Server = JAIGANESH\SQLEXPRESS; Database = northwind; Trusted_Connection = True;";
-                using (SqlConnection con = new SqlConnection(conString))
+                string constr = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
+                //string conString = @"Server = JAIGANESH\SQLEXPRESS; Database = northwind; Trusted_Connection = True;";
+                using (SqlConnection con = new SqlConnection(constr))
                 {
                     con.Open();
                     string query = "SELECT [CustomerID],[CompanyName],[ContactName],[ContactTitle] ,[Address] ,[City],[PostalCode],[Country],[Phone] FROM [NORTHWIND].[dbo].[Customers]";
@@ -71,8 +73,9 @@ namespace Tutorial1
 
             try
             {
-                string conString = @"Server = JAIGANESH\SQLEXPRESS; Database = northwind; Trusted_Connection = True;";
-                using (SqlConnection con = new SqlConnection(conString))
+                string constr = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
+                //string conString = @"Server = JAIGANESH\SQLEXPRESS; Database = northwind; Trusted_Connection = True;";
+                using (SqlConnection con = new SqlConnection(constr))
                 {
                     con.Open();
                     string query = "SELECT [CustomerID],[CompanyName],[ContactName],[ContactTitle] ,[Address] ,[City],[PostalCode],[Country],[Region],[Phone] FROM [NORTHWIND].[dbo].[Customers] where CustomerID = @CustomerID";
