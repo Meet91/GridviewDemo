@@ -9,7 +9,6 @@
 <body>
     <form id="form1" runat="server">
     <div>
-
         <asp:Panel ID="pnlGrid" runat="server">
               <asp:GridView ID="gvCustomers" runat="server" AutoGenerateColumns="False" AllowSorting="true" AllowPaging="True" OnPageIndexChanging="gvCustomers_PageIndexChanging" OnSorting="gvCustomers_Sorting" >
             <Columns>
